@@ -42,6 +42,7 @@ mvn spring-boot:run
 The application will be accessible at http://localhost:8080.
 
 API Endpoints
+
 NOTE: Multiple ticket booking scenerio for the same user(email) is  not handled as this was not in the requirement .
 It can be handled following the logic of Modify, Update and Create a new entry in the map against the email id
 Restriction has been added to avoid creation of a multiple ticket by same user email as part of the requirement
@@ -68,6 +69,8 @@ Restriction has been added to avoid creation of a multiple ticket by same user e
    "seatNumber": "B2"
    }
    Status 201 Created with the ticket details.
+
+   
 NOTE: Assuming Each user will only book 1 ticket as per functional requirement . 
 So it will a single Ticket Object and not List<Ticket> in the response .
 2.View Receipt by Email
@@ -87,6 +90,8 @@ So it will a single Ticket Object and not List<Ticket> in the response .
 "price": 20.0,
 "seatNumber": "A1"
 }
+
+
 3. View Users and Seats by Section
    URL: http://localhost:8080/v1/api/tickets/seats?section=A
    Method: GET
@@ -99,10 +104,14 @@ So it will a single Ticket Object and not List<Ticket> in the response .
    {
    "A1": "amancse2012@example.com"
    }
+
+   
 4. Remove a User
    URL: /v1/api/tickets/{email}
    Method: DELETE
    Response: Status 204 No Content
+
+   
 5. Modify Seat Assignment
    URL: /v1/api/tickets/modify-seat/{email}
    Method: PUT
